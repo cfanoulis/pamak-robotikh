@@ -9,21 +9,15 @@ from pybricks.tools import print, wait, StopWatch
 from pybricks.robotics import DriveBase
 
 # Write your program here
-brick.sound.beep()
 brick.light(Color.RED)
+brick.sound.beeps(2)
 
-motorR = Motor(Port.B)
-motorL = Motor(Port.C)
 ultraSense = UltrasonicSensor(Port.S3)
 
-dist = 69
-sped = 69
-
-motorL.run(sped)
-motorR.run(sped)
-
-while dist < ultraSense.distance():
-    brick.sound.beep(69)
-
-motorR.stop(Stop.BRAKE)
-motorL.stop(Stop.BRAKE)
+while True: 
+    while ultraSense.distance() < 4000:
+        wait(0.1)
+        print('y')
+    wait(2)
+    brick.light(Color.GREEN)
+    brick.sound.beep()
