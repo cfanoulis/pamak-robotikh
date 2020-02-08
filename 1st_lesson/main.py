@@ -10,10 +10,11 @@ from pybricks.robotics import DriveBase
 
 # Write your program here
 brick.sound.beep()
+brick.light(Color.RED)
 
 motorR = Motor(Port.B)
 motorL = Motor(Port.C)
-ultraSense = UltrasonicSensor(Port.S1)
+ultraSense = UltrasonicSensor(Port.S3)
 
 dist = 500
 sped = 666
@@ -22,5 +23,5 @@ while dist < ultraSense.distance():
     motorL.run(sped)
     motorR.run(sped)
 
-motorR.stop()
-motorL.stop()
+motorR.stop(Stop.BRAKE)
+motorL.stop(Stop.BRAKE)
